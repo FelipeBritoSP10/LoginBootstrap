@@ -1,0 +1,28 @@
+                /*Estilização*/
+
+body {
+    background-color: #f8f9fa;
+}
+
+.login-form {
+    width: 360px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.login-form h2 {
+    margin: 0 0 15px;
+}
+
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
