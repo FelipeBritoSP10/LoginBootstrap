@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Link BootStrap-->
+    <!-- Link BootStrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!--Link da pasta CSS -->
+    <!-- Link da pasta CSS -->
     <link rel="stylesheet" href="estilo.css">
     <link rel="icon" href="user.png">
     <title>Tela de login</title>
@@ -13,31 +13,32 @@
 <body>
     <div class="login-form">
         <h2 class="text-center">Entrar</h2>
-        <form action="#" method="post">
+        <form id="login-form" action="https://bootstrap-aulas.vercel.app/#" method="post">
 
             <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nome" required="required">
+                <input type="text" class="form-control" placeholder="Nome" required="required">
             </div>
 
             <div class="form-group">
-            <input type="password" class="form-control" placeholder="Senha" required="required">
+                <input type="password" class="form-control" placeholder="Senha" required="required">
             </div>
 
             <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
             </div>
         </form>
     </div>
-   <script>
-   
-    window.addEventListener('loginSuccess', function() {
-        redirectToMainSite();
-    });
 
-    function redirectToMainSite() {
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            redirectToMainSite();
+        });
+
     
-        window.location.href = 'https://bootstrap-aulas.vercel.app/#';
-    }
-</script>
+        function redirectToMainSite() {
+            window.location.href = 'https://bootstrap-aulas.vercel.app/#';
+        }
+    </script>
 </body>
 </html>
