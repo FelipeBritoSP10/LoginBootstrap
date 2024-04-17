@@ -29,14 +29,30 @@
             </div>
         </form>
     </div>
-
-    <script>
-        document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            redirectToMainSite();
-        });
-
     
+        <style>
+        .error {
+        color: red;
+        }
+        </style>
+    
+    <script>
+          function validarFormulario() {
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+
+            if (nome === "" || email === "") {
+                document.getElementById("nome").classList.add("error");
+                document.getElementById("email").classList.add("error");
+                document.write("<p class='error'>Por favor, preencha todos os campos.</p>");
+                return false;
+            } else {
+              
+                redirectToMainSite();
+                return true;
+            }
+        }
+
         function redirectToMainSite() {
             window.location.href = 'https://bootstrap-aulas.vercel.app/#';
         }
