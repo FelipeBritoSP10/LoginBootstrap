@@ -9,19 +9,28 @@
     <link rel="stylesheet" href="estilo.css">
     <link rel="icon" href="user.png">
     <title>Tela de login</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div class="login-form">
-       <h2 class="text-center">Bem-vindo!</h2>
+        <h2 class="text-center">Bem-vindo ao Curso de Programação</h2>
         <p class="text-center">Por favor, faça login para acessar o conteúdo do curso.</p>
-        <form id="login-form" action="https://bootstrap-aulas.vercel.app/#" method="post">
+        <form id="login-form" action="https://bootstrap-aulas.vercel.app/#" method="post" onsubmit="return validarFormulario()">
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome" required="required">
+                <input type="text" class="form-control" placeholder="Nome" required="required" id="nome">
             </div>
 
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required="required">
+                <input type="email" class="form-control" placeholder="Email" required="required" id="email">
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Senha" required="required" id="senha">
             </div>
 
             <div class="form-group">
@@ -29,31 +38,28 @@
             </div>
         </form>
     </div>
-    
-        <style>
-        .error {
-        color: red;
-        }
-        </style>
-    
+
     <script>
-          function validarFormulario() {
+        function validarFormulario() {
+            // Obtém os valores dos campos
             var nome = document.getElementById("nome").value;
             var email = document.getElementById("email").value;
 
+            // Valida se os campos nome e email foram preenchidos
             if (nome === "" || email === "") {
                 document.getElementById("nome").classList.add("error");
                 document.getElementById("email").classList.add("error");
                 document.write("<p class='error'>Por favor, preencha todos os campos.</p>");
                 return false;
             } else {
-              
+                // Redireciona para o site principal após a submissão do formulário
                 redirectToMainSite();
                 return true;
             }
         }
 
         function redirectToMainSite() {
+            // Redireciona para o site principal
             window.location.href = 'https://bootstrap-aulas.vercel.app/#';
         }
     </script>
