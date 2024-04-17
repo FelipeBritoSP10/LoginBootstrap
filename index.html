@@ -28,5 +28,14 @@
             </div>
         </form>
     </div>
+    <script>
+    window.addEventListener('loginSuccess', function() {
+        redirectToMainSite();
+    });
+
+    function redirectToMainSite() {
+        window.location.href = 'https://bootstrap-aulas.vercel.app';
+    }
+</script>
 </body>
 </html>
