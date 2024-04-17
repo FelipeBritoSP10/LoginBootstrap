@@ -13,11 +13,19 @@
         .error {
             color: red;
         }
+
+        /* Estilo para o cabeçalho */
+        .login-heading {
+            font-size: 20px; /* Tamanho da fonte reduzido */
+            font-weight: bold; /* Negrito */
+            margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+            color: #333; /* Cor do texto */
+        }
     </style>
 </head>
 <body>
     <div class="login-form">
-        <h2 class="text-center">Bem-vindo ao Curso de Programação</h2>
+        <h2 class="text-center login-heading">Bem-vindo</h2>
         <p class="text-center">Por favor, faça login para acessar o conteúdo do curso.</p>
         <form id="login-form" method="post" onsubmit="return validarFormulario()">
 
@@ -41,26 +49,26 @@
 
     <script>
         function validarFormulario() {
-            // Obtém os valores dos campos
+          
             var nome = document.getElementById("nome").value;
             var email = document.getElementById("email").value;
 
-            // Valida se os campos nome e email foram preenchidos
+          
             if (nome === "" || email === "") {
                 document.getElementById("nome").classList.add("error");
                 document.getElementById("email").classList.add("error");
                 document.write("<p class='error'>Por favor, preencha todos os campos.</p>");
                 return false;
             } else {
-                // Redireciona para o site principal após a submissão do formulário
+               
                 redirectToMainSite();
                 return true;
             }
         }
 
         function redirectToMainSite() {
-            // Redireciona para o site principal
-            window.location.href = 'https://bootstrap-aulas.vercel.app/#';
+          
+            window.location.href = 'https://bootstrap-aulas.vercel.app/';
         }
     </script>
 </body>
