@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -25,8 +25,15 @@
                             <input type="email" class="form-control" placeholder="Email" required="required" id="email">
                         </div>
                         <div class="form-group">
+                            <div class="input-group">
                             <input type="password" class="form-control" placeholder="Senha" required="required" id="senha">
-                        </div>
+                             <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="show-password-toggle">
+                                  <i class="far fa-eye"></i>
+                            </button>
+                              </div>
+                                </div>
+                            </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block" id="login-btn">Entrar</button>
                         </div>
@@ -43,6 +50,22 @@
     </div>
 
     <script>
+
+
+document.getElementById("show-password-toggle").addEventListener("click", function () {
+        var senhaInput = document.getElementById("senha");
+        if (senhaInput.type === "password") {
+            senhaInput.type = "text";
+            document.querySelector("#show-password-toggle i").classList.remove("far", "fa-eye");
+            document.querySelector("#show-password-toggle i").classList.add("fas", "fa-eye-slash");
+        } else {
+            senhaInput.type = "password";
+            document.querySelector("#show-password-toggle i").classList.remove("fas", "fa-eye-slash");
+            document.querySelector("#show-password-toggle i").classList.add("far", "fa-eye");
+        }
+    });
+
+        
      function validarFormulario() {
         let nome = document.getElementById("nome").value;
         let email = document.getElementById("email").value;
