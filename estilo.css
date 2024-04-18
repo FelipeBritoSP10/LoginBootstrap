@@ -65,7 +65,7 @@ body {
             border-color: #0056b3; 
         }
 
-       spinner-container {
+        #spinner-container {
             display: none;
             justify-content: center;
             align-items: center;
