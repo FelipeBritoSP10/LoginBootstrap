@@ -26,3 +26,41 @@ body {
     font-size: 15px;
     font-weight: bold;
 }
+
+ .error {
+            color: red;
+        }
+
+        /* Estilo para o cabeçalho */
+        .login-heading {
+            font-size: 28px; /* Tamanho da fonte aumentado */
+            font-weight: bold; /* Negrito */
+            color: #333; /* Cor do texto */
+            margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+        }
+
+        /* Estilo para o subtítulo */
+        .sub-heading {
+            font-size: 18px; /* Tamanho da fonte reduzido */
+            color: #666; /* Cor do texto mais suave */
+            margin-bottom: 30px; /* Espaço abaixo do subtítulo */
+        }
+
+        /* Estilo para o formulário */
+        .login-form {
+            background-color: #f9f9f9; /* Cor de fundo do formulário */
+            padding: 30px; /* Espaçamento interno */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+
+        /* Estilo para o botão */
+        .btn-primary {
+            background-color: #007bff; /* Cor de fundo do botão */
+            border-color: #007bff; /* Cor da borda do botão */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+            border-color: #0056b3; /* Cor da borda do botão ao passar o mouse */
+        }
