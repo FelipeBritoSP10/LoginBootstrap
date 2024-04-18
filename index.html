@@ -11,40 +11,40 @@
     <title>Tela de login</title>
 </head>
 <body>
-    <div class="login-form">
-        <h2 class="text-center login-heading">Bem-vindo!</h2>
-        <p class="text-center">Por favor, faça login para acessar o conteúdo do curso.</p>
-        <form id="login-form" method="post" onsubmit="return validarFormulario()">
-
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome" required="required" id="nome">
-            </div>
-
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required="required" id="email">
-            </div>
-
-            <div class="form-group">
-                <div class="position-relative">
-                <input type="password" class="form-control" placeholder="Senha" required="required" id="senha">
-                <i class="eye-icon fa fa-eye" onclick="togglePasswordVisibility()"></i>
+   <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-form">
+                    <h2 class="text-center login-heading">Bem-vindo!</h2>
+                    <p class="text-center sub-heading">Faça login para acessar todo o conteúdo do curso.</p>
+                    <form id="login-form" method="post" onsubmit="return validarFormulario()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nome" required="required" id="nome">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required="required" id="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Senha" required="required" id="senha">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        </div>
+                    </form>
                 </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
             </div>
-        </form>
+        </div>
     </div>
 
     <script>
         function validarFormulario() {
-            let nome = document.getElementById("nome").value;
-            let email = document.getElementById("email").value;
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
 
             if (nome === "" || email === "") {
                 document.getElementById("nome").classList.add("error");
                 document.getElementById("email").classList.add("error");
-                document.write("<p class='error'>Por favor, preencha todos os campos.</p>");
+                alert("Por favor, preencha todos os campos.");
                 return false;
             } else {
                 redirectToMainSite();
@@ -52,23 +52,8 @@
             }
         }
 
-          function togglePasswordVisibility() {
-            var senhaInput = document.getElementById("senha");
-            var eyeIcon = document.querySelector(".eye-icon");
-
-            if (senhaInput.type === "password") {
-                senhaInput.type = "text";
-                eyeIcon.classList.remove("fa-eye");
-                eyeIcon.classList.add("fa-eye-slash");
-            } else {
-                senhaInput.type = "password";
-                eyeIcon.classList.remove("fa-eye-slash");
-                eyeIcon.classList.add("fa-eye");
-            }
-        }
-
         function redirectToMainSite() {
-            window.location.href = 'https://bootstrap-aulas.vercel.app/';
+            window.location.href = 'https://bootstrap-aulas.vercel.app/#';
         }
     </script>
 </body>
