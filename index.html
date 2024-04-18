@@ -37,14 +37,14 @@
     </div>
 
 
-     <div id="spinner-container">
-    <div class="spinner-border" role="status">
-    <span class="sr-only">Carregando...</span>
-    </div>
-    </div>
+   <div id="spinner-container">
+   <div class="spinner-border text-primary" role="status">
+   <span class="sr-only">Carregando...</span>
+   </div>
+   </div>
 
     <script>
-        function validarFormulario() {
+            function validarFormulario() {
             var nome = document.getElementById("nome").value;
             var email = document.getElementById("email").value;
 
@@ -55,7 +55,7 @@
                 return false;
             } else {
                  document.getElementById("spinner-container").style.display = "flex";
-                redirectToMainSite();
+                 setTimeout(redirectToMainSite, 2000);
                 return false;
             }
         }
