@@ -43,27 +43,40 @@
     </div>
 
     <script>
-        function validarFormulario() {
-            var nome = document.getElementById("nome").value;
-            var email = document.getElementById("email").value;
+     function validarFormulario() {
+        let nome = document.getElementById("nome").value;
+        let email = document.getElementById("email").value;
+        let senha = document.getElementById("senha").value;
 
-            if (nome === "" || email === "") {
-                document.getElementById("nome").classList.add("error");
-                document.getElementById("email").classList.add("error");
-                alert("Por favor, preencha todos os campos.");
-                return false;
-            } else {
-                // Mostrar spinner
-                document.getElementById("spinner-container").style.display = "flex";
-                document.getElementById("login-btn").disabled = true; 
-                setTimeout(redirectToMainSite, 2000); 
-                return false;
-            }
-        }
+      
+        let re = /\S+@\S+\.\S+/;
 
-        function redirectToMainSite() {
-            window.location.href = 'https://bootstrap-aulas.vercel.app/#';
+        if (nome === "" || email === "" || senha === "") {
+            document.getElementById("nome").classList.add("error");
+            document.getElementById("email").classList.add("error");
+            document.getElementById("senha").classList.add("error");
+            alert("Por favor, preencha todos os campos.");
+            return false;
+        } else if (!re.test(email)) {
+            document.getElementById("email").classList.add("error");
+            alert("Por favor, insira um endereço de e-mail válido.");
+            return false;
+        } else if (senha.length < 8) {
+            document.getElementById("senha").classList.add("error");
+            alert("A senha deve ter pelo menos 8 caracteres.");
+            return false;
+        } else {
+           
+            document.getElementById("spinner-container").style.display = "flex";
+            document.getElementById("login-btn").disabled = true;
+            setTimeout(redirectToMainSite, 2000);
+            return false;
         }
+    }
+
+    function redirectToMainSite() {
+        window.location.href = 'https://bootstrap-aulas.vercel.app/#';
+    }
     </script>
 </body>
 </html>
