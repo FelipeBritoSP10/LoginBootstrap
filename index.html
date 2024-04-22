@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -27,14 +27,14 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                            <input type="password" class="form-control" placeholder="Senha" required="required" id="senha">
-                             <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="show-password-toggle">
-                                  <i class="far fa-eye"></i>
-                            </button>
-                              </div>
+                                <input type="password" class="form-control" placeholder="Senha" required="required" id="senha">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="show-password-toggle">
+                                        <i class="far fa-eye"></i>
+                                    </button>
                                 </div>
                             </div>
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block" id="login-btn">Entrar</button>
                         </div>
@@ -51,56 +51,65 @@
     </div>
 
     <script>
+        document.getElementById("show-password-toggle").addEventListener("click", function () {
+            var senhaInput = document.getElementById("senha");
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+                document.querySelector("#show-password-toggle i").classList.remove("far", "fa-eye");
+                document.querySelector("#show-password-toggle i").classList.add("fas", "fa-eye-slash");
+            } else {
+                senhaInput.type = "password";
+                document.querySelector("#show-password-toggle i").classList.remove("fas", "fa-eye-slash");
+                document.querySelector("#show-password-toggle i").classList.add("far", "fa-eye");
+            }
+        });
 
+        function validarFormulario() {
+            let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
 
-document.getElementById("show-password-toggle").addEventListener("click", function () {
-        var senhaInput = document.getElementById("senha");
-        if (senhaInput.type === "password") {
-            senhaInput.type = "text";
-            document.querySelector("#show-password-toggle i").classList.remove("far", "fa-eye");
-            document.querySelector("#show-password-toggle i").classList.add("fas", "fa-eye-slash");
-        } else {
-            senhaInput.type = "password";
-            document.querySelector("#show-password-toggle i").classList.remove("fas", "fa-eye-slash");
-            document.querySelector("#show-password-toggle i").classList.add("far", "fa-eye");
+            let re = /\S+@\S+\.\S+/;
+
+            if (nome === "") {
+                document.getElementById("nome").classList.add("error");
+                alert("Por favor, insira seu nome.");
+                return false;
+            } else if (nome.length < 3) {
+                document.getElementById("nome").classList.add("error");
+                alert("O nome deve ter pelo menos 3 caracteres.");
+                return false;
+            } else if (email === "" || senha === "") {
+                document.getElementById("nome").classList.remove("error");
+                document.getElementById("email").classList.add("error");
+                document.getElementById("senha").classList.add("error");
+                alert("Por favor, preencha todos os campos.");
+                return false;
+            } else if (!re.test(email)) {
+                document.getElementById("nome").classList.remove("error");
+                document.getElementById("email").classList.add("error");
+                alert("Por favor, insira um endereço de e-mail válido.");
+                return false;
+            } else if (senha.length < 8) {
+                document.getElementById("nome").classList.remove("error");
+                document.getElementById("email").classList.remove("error");
+                document.getElementById("senha").classList.add("error");
+                alert("A senha deve ter pelo menos 8 caracteres.");
+                return false;
+            } else {
+                document.getElementById("nome").classList.remove("error");
+                document.getElementById("email").classList.remove("error");
+                document.getElementById("senha").classList.remove("error");
+                document.getElementById("spinner-container").style.display = "flex";
+                document.getElementById("login-btn").disabled = true;
+                setTimeout(redirectToMainSite, 2000);
+                return false;
+            }
         }
-    });
 
-        
-     function validarFormulario() {
-        let nome = document.getElementById("nome").value;
-        let email = document.getElementById("email").value;
-        let senha = document.getElementById("senha").value;
-
-      
-        let re = /\S+@\S+\.\S+/;
-
-        if (nome === "" || email === "" || senha === "") {
-            document.getElementById("nome").classList.add("error");
-            document.getElementById("email").classList.add("error");
-            document.getElementById("senha").classList.add("error");
-            alert("Por favor, preencha todos os campos.");
-            return false;
-        } else if (!re.test(email)) {
-            document.getElementById("email").classList.add("error");
-            alert("Por favor, insira um endereço de e-mail válido.");
-            return false;
-        } else if (senha.length < 8) {
-            document.getElementById("senha").classList.add("error");
-            alert("A senha deve ter pelo menos 8 caracteres.");
-            return false;
-        } else {
-           
-            document.getElementById("spinner-container").style.display = "flex";
-            document.getElementById("login-btn").disabled = true;
-            setTimeout(redirectToMainSite, 2000);
-            return false;
+        function redirectToMainSite() {
+            window.location.href = 'https://bootstrap-aulas.vercel.app/#';
         }
-    }
-
-    function redirectToMainSite() {
-        window.location.href = 'https://bootstrap-aulas.vercel.app/#';
-    }
     </script>
 </body>
 </html>
